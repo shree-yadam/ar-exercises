@@ -61,7 +61,19 @@ store.errors.each do |field, error|
 end
 
 puts "TEST CASE 10:"
-store = Store.create(name: "A", annual_revenue: -2)
+store = Store.create(name: "ABC", annual_revenue: -2)
+store.errors.each do |field, error|
+  puts "#{field} => #{error}"
+end
+
+puts "TEST CASE 11:"
+store = Store.create(name: "ABC", annual_revenue: 20)
+store.errors.each do |field, error|
+  puts "#{field} => #{error}"
+end
+
+puts "TEST CASE 11:"
+store = Store.create(name: "ABC", annual_revenue: 20, mens_apparel: false, womens_apparel: false)
 store.errors.each do |field, error|
   puts "#{field} => #{error}"
 end
